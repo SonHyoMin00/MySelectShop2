@@ -1,4 +1,4 @@
-package com.sparta.myselectshop2;
+package com.sparta.myselectshop2.dto;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.json.JSONObject;

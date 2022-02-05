@@ -1,4 +1,4 @@
-package com.sparta.myselectshop2;
+package com.sparta.myselectshop2.model;
 
 import lombok.Getter;
 import lombok.Setter;
