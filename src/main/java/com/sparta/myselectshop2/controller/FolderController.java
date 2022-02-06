@@ -1,6 +1,7 @@
 package com.sparta.myselectshop2.controller;
 
 import com.sparta.myselectshop2.dto.FolderCreateRequestDto;
+import com.sparta.myselectshop2.exception.ApiException;
 import com.sparta.myselectshop2.model.Folder;
 import com.sparta.myselectshop2.model.Product;
 import com.sparta.myselectshop2.model.User;
@@ -8,6 +9,8 @@ import com.sparta.myselectshop2.security.UserDetailsImpl;
 import com.sparta.myselectshop2.service.FolderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
@@ -47,4 +50,19 @@ public class FolderController {
         page = page - 1;
         return folderService.getProductsOnFolder(userDetails.getUser(), page, size, sortBy, isAsc, folderId);
     }
+
+    //exception 폴더의 파일들로 아래의 내용을 대체할 수 있음
+//    @ExceptionHandler({ IllegalArgumentException.class })
+//    public ResponseEntity<Object> handle(IllegalArgumentException ex) {
+//        ApiException apiException = new ApiException(
+//                ex.getMessage(),
+//                // HTTP 400 -> Client Error
+//                HttpStatus.BAD_REQUEST
+//        );
+//
+//        return new ResponseEntity<>(
+//                apiException,
+//                HttpStatus.BAD_REQUEST
+//        );
+//    }
 }
